@@ -68,17 +68,3 @@ Las teclas `1` a `9`, `A` a `D`, `*`, `0` y `#` conservan la distribución de un
 5. **Envío virtual:** el dígito reconocido se trata como el dato que la cadena de la actividad enviaría al maestro SPI. El estado de la escena deja visible el dato y su origen (teclado o webcam).
 6. **Movimiento:** cada dígito tiene una lista de trazos en coordenadas normalizadas. PyBullet calcula posiciones de articulación con cinemática inversa y anima el KUKA; el trazo se conserva como línea en el tablero.
 
-## Relacion con los ejemplos del punto 6
-
-Los cuatro ejemplos originales ilustran partes diferentes de PyBullet y se mantienen sin cambios:
-
-- `brazo/main.py` carga un KUKA y demuestra `calculateInverseKinematics`; esta actividad reutiliza esa idea para seguir puntos definidos en el tablero, no un objetivo aleatorio.
-- `robot/main.py` carga `two_joint_robot_custom.urdf` y controla articulaciones con deslizadores. Su URDF de dos juntas sirve como referencia de carga y control de modelos propios; para trazar dígitos con más alcance se usa el KUKA de PyBullet.
-- `carro/main.py` muestra control de articulaciones del modelo de carro y avance de la simulacion.
-- `bipedo/main.py` ejemplifica control de posición tipo PD sobre articulaciones de un URDF local.
-
-En todos los casos se conserva el patrón central: cargar un modelo URDF, fijar gravedad, enviar consignas a las articulaciones y avanzar el mundo con `stepSimulation()`.
-
-## Alcance de la simulación
-
-El teclado matricial, el enlace SPI y la pantalla OLED son representaciones de software. No se envían señales a un ESP32 ni se controla hardware físico. El reconocimiento se basa en MNIST, por lo que la forma del trazo, el contraste, la iluminación y el fondo afectan la confianza. La escena demuestra el movimiento geométrico del brazo; no simula lápiz, contacto ni fuerzas de escritura.
