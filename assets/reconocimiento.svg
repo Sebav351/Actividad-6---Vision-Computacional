@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="440" viewBox="0 0 1500 440">
+  <rect width="1500" height="440" fill="#f4f6f5"/>
+  <text x="750" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-size="29" font-weight="700" fill="#183039">Del papel al movimiento del brazo</text>
+  <g font-family="Arial,sans-serif">
+    <rect x="32" y="90" width="320" height="295" rx="12" fill="#fff" stroke="#c5d1ce" stroke-width="2"/>
+    <text x="55" y="128" font-size="21" font-weight="700" fill="#19745e">1. Camara web</text>
+    <rect x="62" y="149" width="260" height="195" rx="8" fill="#35444a"/>
+    <rect x="78" y="164" width="228" height="166" fill="#fffdf5"/>
+    <path d="M177 184c-44 2-54 74-27 112 19 27 65 26 83-2 17-27 12-101-17-108-13-4-26-4-39-2z" fill="none" stroke="#28343a" stroke-width="8" stroke-linecap="round"/>
+    <rect x="115" y="174" width="155" height="144" fill="none" stroke="#20a05a" stroke-width="3"/>
+    <text x="60" y="368" font-size="16" fill="#53666b">Un solo digito oscuro y centrado.</text>
+
+    <path d="M365 235h28l-12-12 8-8 25 25-25 25-8-8 12-12h-28z" fill="#19745e"/>
+    <rect x="425" y="90" width="320" height="295" rx="12" fill="#fff" stroke="#c5d1ce" stroke-width="2"/>
+    <text x="448" y="128" font-size="21" font-weight="700" fill="#19745e">2. OpenCV</text>
+    <rect x="468" y="155" width="230" height="180" fill="#171d1f"/>
+    <path d="M560 184c-33 5-42 62-24 89 17 24 54 22 67-4 12-24 7-78-18-84-8-2-17-2-25-1z" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+    <text x="462" y="361" font-size="16" fill="#53666b">Umbral, contorno, escala y centro.</text>
+
+    <path d="M758 235h28l-12-12 8-8 25 25-25 25-8-8 12-12h-28z" fill="#19745e"/>
+    <rect x="818" y="90" width="300" height="295" rx="12" fill="#fff" stroke="#c5d1ce" stroke-width="2"/>
+    <text x="841" y="128" font-size="21" font-weight="700" fill="#19745e">3. Entrada CNN</text>
+    <rect x="872" y="164" width="190" height="190" fill="#111"/>
+    <path d="M941 189c-25 3-31 52-18 70 12 17 39 15 49-3 9-18 5-62-13-66-6-2-12-2-18-1z" fill="none" stroke="#fff" stroke-width="6"/>
+    <text x="884" y="378" font-size="16" fill="#53666b">28 x 28; 10 clases (0-9).</text>
+
+    <path d="M1130 235h28l-12-12 8-8 25 25-25 25-8-8 12-12h-28z" fill="#19745e"/>
+    <rect x="1190" y="90" width="278" height="295" rx="12" fill="#fff" stroke="#c5d1ce" stroke-width="2"/>
+    <text x="1213" y="128" font-size="21" font-weight="700" fill="#19745e">4. Resultado</text>
+    <rect x="1218" y="158" width="220" height="94" rx="7" fill="#173b2e"/>
+    <text x="1328" y="218" text-anchor="middle" font-size="47" font-weight="700" fill="#f3f5ef">0</text>
+    <path d="M1268 320h25v-30h40v30h25v30h-90z" fill="#e2aa40" stroke="#b27a1d" stroke-width="2"/>
+    <path d="M1325 289l-16-40M1295 320l-43-8" stroke="#315e9f" stroke-width="10" stroke-linecap="round"/>
+    <text x="1210" y="377" font-size="16" fill="#53666b">Ejemplo visual; salida y confianza variables.</text>
+  </g>
+</svg>
