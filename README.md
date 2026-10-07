@@ -19,66 +19,6 @@ El estado de PyBullet representa el dato recibido y el recorrido. Esto permite p
 
 ![Etapas del reconocimiento visual](assets/reconocimiento.svg)
 
-## Requisitos
-
-- Windows 10/11 de 64 bits.
-- Python 3.11 recomendado. TensorFlow dispone de paquetes para esta version; evita usar Python 3.14 para instalar las dependencias de esta actividad.
-- Webcam conectada para reconocimiento en vivo. Sin cámara, el teclado virtual y PyBullet siguen disponibles.
-- Conexión a Internet durante la primera instalación y la primera descarga de MNIST para entrenar el modelo.
-
-Paquetes de Python declarados en `requirements.txt`: NumPy, OpenCV, PyBullet y TensorFlow. La simulacion no utiliza Arduino, ESP32, puerto serie ni componentes I2C/SPI físicos.
-
-## Instalacion
-
-La opcion recomendada en Windows es usar Miniforge/Conda, porque conda-forge ofrece PyBullet precompilado:
-
-```powershell
-conda env create -f environment.yml
-conda activate pybullet-digitos
-```
-
-La primera instalación descarga varios cientos de megabytes: TensorFlow por sí solo ocupa alrededor de 351 MB en Windows, además de PyBullet, OpenCV y sus dependencias.
-
-Si se usa un entorno `venv` y `pip`, la distribucion de PyPI compila PyBullet desde código fuente en Windows. Para esa ruta se requiere Visual Studio Build Tools con la carga de trabajo **Desarrollo para el escritorio con C++** y el SDK de Windows.
-
-Abre PowerShell en esta carpeta. Si Python 3.11 está instalado, crea un entorno separado para la actividad:
-
-```powershell
-py -3.11 -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-```
-
-Si PowerShell bloquea la activacion del entorno, ejecuta Python directamente sin activarlo:
-
-```powershell
-py -3.11 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install --upgrade pip
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-```
-
-## Preparar el reconocedor
-
-El modelo entrenado `modelo_mnist_cnn.keras` se incluye junto al programa, así que se puede iniciar la cámara directamente sin volver a entrenar ni descargar MNIST. Para entrenar una nueva versión de la CNN, desde esta carpeta ejecuta:
-
-```powershell
-python entrenar_modelo.py
-```
-
-La primera ejecucion descarga MNIST. El entrenamiento tarda unos minutos y deja `modelo_mnist_cnn.keras` junto al programa. No es necesario repetirlo mientras se conserve ese archivo. Este modelo reconoce dígitos parecidos a los ejemplos MNIST; no es un OCR general y su precisión con papel real depende del tamaño del trazo, el contraste, el fondo y la iluminación.
-
-## Iniciar la simulacion
-
-Con el entorno activado y el modelo creado:
-
-```powershell
-python main.py
-```
-
-Se abren la ventana de PyBullet y las ventanas de cámara, preprocesamiento y OLED virtual de OpenCV. Coloca una hoja blanca con un solo dígito oscuro dentro del marco verde. Procura que el dígito sea grande, esté completo, no toque el borde del marco y contraste claramente con el papel. Mantén la hoja quieta un instante para que se estabilice la predicción.
-
-En la ventana de la cámara se ve el recorte y el resultado de OpenCV. Otra ventana amplía la imagen 28 x 28 usada como entrada de la red. La pantalla OLED virtual muestra el último dato y si llegó del teclado o de la webcam. Al aceptar un dígito, el brazo recorre su trazo en el tablero de PyBullet y el estado indica que se recibió por el enlace virtual.
 
 ### Prueba real con la webcam
 
